@@ -16,6 +16,3 @@ $db = new PDO(
 } catch (PDOException $e) {
     die("erreur de connexion à la base de donnée: {$error->getMessage()}");
 }
-
-
-var_dump($db->query('SELECT * FROM users')->fetchAll());// FETCH all = tous les résultats de la base de donnée en tableau associatif. fetch = il prend la première occurence
