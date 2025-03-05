@@ -114,6 +114,15 @@ body {
     color: var(--light);
 }
 
+.btn-danger {
+    background: var(--danger);
+    color: var(--light);
+}
+
+.btn-danger:hover {
+    background: #c82333;
+}
+
 /************************************** NAVBAR **************************************/
 .navbar {
     position: sticky;
