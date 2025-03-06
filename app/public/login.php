@@ -30,7 +30,7 @@ if (
             'firstName'=>$user['first_name'],
             'lastName'=>$user['last_name'],
             'email' => $user['email'],
-            'roles'=> json_decode($user['roles'] ?? ''),
+            'roles'=> json_decode($user['roles'] ?? '[]'),
         ];
         
         header('Location: /');
