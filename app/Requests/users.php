@@ -22,8 +22,31 @@ function findAllUsers(): array
         ->fetchAll();
 }
 
+
 /**
- * Récupère un tuilisateur en BDD en filtrant par son email
+ * Récupère un uilisateur en BDD en filtrant par son ID
+ * @param string $id ID de l'utilisateur à rechercher
+ * @return bool| array
+ */
+
+function findOneUserById(int $id): bool|array
+{
+    global $db;
+
+    $query = "SELECT * FROM users WHERE id = :id";
+
+    $sql = $db->prepare($query);
+    $sql->execute([
+        'id' => $id
+    ]);
+    return $sql->fetch();
+}
+
+
+
+
+/**
+ * Récupère un uilisateur en BDD en filtrant par son email
  * @param string $email Email de l'utilisateur à rechercher
  * @return bool| array
  */
