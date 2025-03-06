@@ -123,6 +123,14 @@ body {
     background: #c82333;
 }
 
+.btn-light {
+    background: var(--light);
+    color: var(--dark);
+}
+
+.btn-light:hover {
+    background: #e2e6ea;
+}
 /************************************** NAVBAR **************************************/
 .navbar {
     position: sticky;

@@ -17,9 +17,9 @@ function findAllUsers(): array
 
     // return $sql->fetchAll();
 
-    return $db  
-    ->query('SELECT * FROM users')
-    ->fetchAll();
+    return $db
+        ->query('SELECT * FROM users')
+        ->fetchAll();
 }
 
 /**
@@ -30,7 +30,7 @@ function findAllUsers(): array
 
 function findOneUserByEmail(string $email): bool|array
 {
-   
+
     global $db;
     // $sql = $db->query("SELECT * FROM users WHERE email = '$email'"); NE PAS FAIRE CAR IL DOIT VERIFIER CE QUE l'utilisateur inscrit
 
@@ -41,6 +41,41 @@ function findOneUserByEmail(string $email): bool|array
 
     return $sql->fetch();
 
-    
+
 }
 
+
+
+
+/**
+ * Création d'un utilisateur en BDD 
+ * Summary of createUser
+ * @param string $firstName
+ * @param string $lastName
+ * @param string $email
+ * @param string $password
+ * @return bool true si en BDD false si erreur
+ */
+
+function createUser(string $firstName, string $lastName, string $email, string $password): bool
+{
+    global $db;
+
+    try {
+
+        $query = "INSERT INTO users (first_name, last_name, email, password) VALUES (:first_name, :last_name, :email, :password)";
+
+        $sql = $db->prepare($query);
+        $sql->execute([
+            'first_name' => $firstName,
+            'last_name' => $lastName,
+            'email' => $email,
+            'password' => password_hash($password, PASSWORD_ARGON2I),
+        ]);
+    } catch (PDOException $e) {
+        return false;
+    }
+
+    return true;
+
+}

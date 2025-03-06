@@ -7,21 +7,24 @@
             </li>
             <li class="navbar-item">
                 <a href="#">Profil</a>
-            </li>   
+            </li>
             <li class="navbar-item">
                 <a href="#">Blog</a>
-            </li>               
-        </ul>
-
-        <ul class="navbar-buttons">
-            <li class="navbar-item">
-                <?php if(!empty($_SESSION['user'])): ?>
-                    <a href="/logout.php" class="btn btn-danger">Logout</a>
-                <?php else: ?>
-                <a href="/login.php" class="btn btn-secondary">Login</a>
-                <?php endif; ?>
             </li>
-
         </ul>
-    </nav>  
+        <ul class="navbar-buttons">
+            <?php if (!empty($_SESSION['user'])): ?>
+                <li class="navbar-item">
+                    <a href="/logout.php" class="btn btn-danger">Logout</a>
+                </li>
+            <?php else: ?>
+                <li class="navbar-item">
+                    <a href="/login.php" class="btn btn-secondary">Login</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="/register.php" class="btn btn-light">Register</a>
+                </li>
+            <?php endif; ?>
+        </ul>
+    </nav>
 </header>
