@@ -54,7 +54,10 @@ require_once '/app/Requests/users.php';
                             <td>
                                 <div class="table-btn">
                                     <a href="/admin/users/update.php?id=<?=$user['id'];?>" class="btn btn-secondary">Modifier</a>
-                                    <a href="#" class="btn btn-danger">Supprimer</a>
+                                    <form action="/admin/users/delete.php" method="POST" onsubmit="return confirm('Etevous sur de voulour supprimer ce user?')">
+                                        <input type="hidden" name="id" value="<?=$user['id']; ?>">
+                                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
