@@ -29,6 +29,7 @@ if(
     <?php require_once '/app/public/Layout/_header.php'; ?>
 
     <main>
+    <?php require_once '/app/public/Layout/_messages.php'; ?>
         <h1>Votre message</h1>
         <p><?= $name; ?></p>
         <p><?= $email; ?></p>
